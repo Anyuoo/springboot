@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span th:text="${msg}"></span>
+<hr/>
+<input th:value="${msg}">
+<hr/>
+<span th:text="${#strings.isEmpty(msg)}"></span>
+<hr/>
+<span th:text="${#strings.contains(msg,'hello')}"></span>
+<hr/>
+<span th:text="${date}"></span>
+<hr/>
+<span th:text="${#dates.format(date,'yyyy-mm-dd')}"></span>
+<hr/>
+<span th:text="${#dates.year(date)}"></span>
+<hr/>
+<span th:text="${#dates.day(date)}"></span>
+<div>
+    <span th:if="${sex}=='男'">
+        性别：男
+    </span>
+    <span th:if="${sex}=='女'">
+        性别：女
+    </span>
+</div>
+<hr/>
+<div th:switch="${id}">
+    <span th:case="1">111</span>
+    <span th:case="2">222</span>
+    <span th:case="3">333</span>
+    <span th:case="*">0000</span>
+</div>
+<hr/>
+<table border="1" width="50%">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>AGE</th>
+    </tr>
+    <tr th:each="u : ${list}">
+        <td th:text="${u.id}"></td>
+        <td th:text="${u.getName()}"></td>
+        <td th:text="${u.getAge()}"></td>
+    </tr>
+</table>
+<table border="1" width="50%">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>AGE</th>
+        <th>Index</th>
+        <th>Count</th>
+    </tr>
+    <tr th:each="u,d: ${list}">
+        <td th:text="${u.id}"></td>
+        <td th:text="${u.getName()}"></td>
+        <td th:text="${u.getAge()}"></td>
+        <td th:text="${d.index}"></td>
+        <td th:text="${d.count}"></td>
+    </tr>
+</table>
+<hr/>
+ HttpServletRequest:<span th:text="${#request.getAttribute('req')}"></span>
+ HttpServletRequest:<span th:text="${#httpServletRequest.getAttribute('req')}"></span>
+<hr/>
+    Session: <span th:text="${#session.getAttribute('ses')}"></span>
+    Session: <span th:text="${session.ses}"></span>
+<hr/>
+    Application: <span th:text="${#servletContext.getAttribute('con')}"></span>
+    Application: <span th:text="${application.con}"></span>
+<hr/>
+    <a   th:href="@{http://www.baidu.com}">打开百度</a>
+<hr/>
+    <a  th:href="@{/show2}">打开show2</a>
+<hr/>
+<a th:href="@{/show3/{id}/{name}(id='100',name= 'anyu')}">restful传参</a>
+<hr/>
+
+<a th:href="@{/show3/{id}/{name}(id=${id},name=${name})}">restful传参</a>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="shortcut icon" href="../resource/favicon.ico" th:href="@{/static/favicon.ico}"/>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/static/favicon.ico}">tushu</a>
+    <table width="50%" border="1" >
+        <tr>
+            <th >name</th>
+            <th>sex</th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.getUserName()}"></td>
+            <td th:text="${user.getSex()}"></td>
+            <td>
+                <a th:href="@{/user/update(name=${user.getUserName()})}">update</a>
+                <a th:href="@{/user/delete}">delete</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
