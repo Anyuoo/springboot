@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>秘籍</title>
+</head>
+<body>
+<h1 align="center">欢迎光临武林秘密管理系统</h1>
+<h2 align="center">有课你好，如果想查看武林秘籍<a th:href="@{/login}">请登录</a></h2>
+<h3>普通武林秘籍</h3>
+<ul>
+    <li><a th:href="@{/level1/1}">罗汉拳</a></li>
+    <li><a th:href="@{/level1/2}">武当长拳</a></li>
+    <li><a th:href="@{/level1/3}">武当剑法</a></li>
+</ul>
+<h3>中等武林秘籍</h3>
+<ul>
+    <li><a th:href="@{/level2/1}">太极拳</a></li>
+    <li><a th:href="@{/level2/2}">七伤拳</a></li>
+    <li><a th:href="@{/level2/3}">纵云梯</a></li>
+</ul>
+<h3>高级武林秘籍</h3>
+<ul>
+    <li><a th:href="@{/level3/1}">九阴正经</a></li>
+    <li><a th:href="@{/level3/2}">独孤九剑</a></li>
+    <li><a th:href="@{/level3/3}">葵花宝典</a></li>
+</ul>
+</body>
+</html>
